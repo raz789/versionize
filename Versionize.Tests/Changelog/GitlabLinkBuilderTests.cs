@@ -98,7 +98,7 @@ public class GitlabLinkBuilderTests
     public void ShouldBuildASSHTagLink()
     {
         var linkBuilder = new GitlabLinkBuilder(inkscapeSSH);
-        var link = linkBuilder.BuildVersionTagLink(new SemanticVersion(1, 0, 0));
+        var link = linkBuilder.BuildVersionTagLink(new SemanticVersion(1, 0, 0), new SemanticVersion(0, 1, 0), null);
 
         link.ShouldBe("https://gitlab.com/inkscape/inkscape/-/tags/v1.0.0");
     }
@@ -107,7 +107,7 @@ public class GitlabLinkBuilderTests
     public void ShouldBuildAnHTTPSTagLink()
     {
         var linkBuilder = new GitlabLinkBuilder(inkscapeHTTPS);
-        var link = linkBuilder.BuildVersionTagLink(new SemanticVersion(1, 0, 0));
+        var link = linkBuilder.BuildVersionTagLink(new SemanticVersion(1, 0, 0), new SemanticVersion(0, 1, 0), null);
 
         link.ShouldBe("https://gitlab.com/inkscape/inkscape/-/tags/v1.0.0");
     }

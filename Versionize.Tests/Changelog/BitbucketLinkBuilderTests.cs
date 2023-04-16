@@ -146,7 +146,7 @@ public class BitBucketLinkBuilderTests
     public void ShouldBuildAnOrgSSHTagLink()
     {
         var linkBuilder = new BitbucketLinkBuilder(sshOrgPushUrl);
-        var link = linkBuilder.BuildVersionTagLink(new SemanticVersion(1, 0, 0));
+        var link = linkBuilder.BuildVersionTagLink(new SemanticVersion(1, 0, 0), new SemanticVersion(0, 1, 0), null);
 
         link.ShouldBe("https://bitbucket.org/mobiloitteinc/dotnet-codebase/src/v1.0.0");
     }
@@ -155,7 +155,7 @@ public class BitBucketLinkBuilderTests
     public void ShouldBuildAComSSHTagLink()
     {
         var linkBuilder = new BitbucketLinkBuilder(sshComPushUrl);
-        var link = linkBuilder.BuildVersionTagLink(new SemanticVersion(1, 0, 0));
+        var link = linkBuilder.BuildVersionTagLink(new SemanticVersion(1, 0, 0), new SemanticVersion(0, 1, 0), null);
 
         link.ShouldBe("https://bitbucket.com/mobiloitteinc/dotnet-codebase/src/v1.0.0");
     }
@@ -164,7 +164,7 @@ public class BitBucketLinkBuilderTests
     public void ShouldBuildAnOrgHTTPSTagLink()
     {
         var linkBuilder = new BitbucketLinkBuilder(httpsOrgPushUrl);
-        var link = linkBuilder.BuildVersionTagLink(new SemanticVersion(1, 0, 0));
+        var link = linkBuilder.BuildVersionTagLink(new SemanticVersion(1, 0, 0), new SemanticVersion(0, 1, 0), null);
 
         link.ShouldBe("https://bitbucket.org/mobiloitteinc/dotnet-codebase/src/v1.0.0");
     }
@@ -173,7 +173,7 @@ public class BitBucketLinkBuilderTests
     public void ShouldBuildAComHTTPSTagLink()
     {
         var linkBuilder = new BitbucketLinkBuilder(httpsComPushUrl);
-        var link = linkBuilder.BuildVersionTagLink(new SemanticVersion(1, 0, 0));
+        var link = linkBuilder.BuildVersionTagLink(new SemanticVersion(1, 0, 0), new SemanticVersion(0, 1, 0), null);
 
         link.ShouldBe("https://bitbucket.com/mobiloitteinc/dotnet-codebase/src/v1.0.0");
     }
