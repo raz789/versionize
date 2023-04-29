@@ -58,7 +58,7 @@ public class BitbucketLinkBuilder : IChangelogLinkBuilder
     {
         if (!string.IsNullOrEmpty(urlFormat))
         {
-            return ChangelogLinkUtil.CreateCompareUrl(urlFormat, _organization, _repository, previousVersion, newVersion);
+            return ChangelogLinkUtil.CreateCompareUrl(urlFormat, _organization, _repository, newVersion, previousVersion);
         }
 
         return $"https://bitbucket.{_domain}/{_organization}/{_repository}/src/v{newVersion}";

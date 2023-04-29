@@ -51,7 +51,7 @@ public class AzureLinkBuilder : IChangelogLinkBuilder
     {
         if (!string.IsNullOrEmpty(urlFormat))
         {
-            return ChangelogLinkUtil.CreateCompareUrl(urlFormat, _organization, _repository, previousVersion, newVersion);
+            return ChangelogLinkUtil.CreateCompareUrl(urlFormat, _organization, _repository, newVersion, previousVersion);
         }
 
         return $"https://{_organization}@dev.azure.com/{_organization}/{_repository}/releases/tag/v{newVersion}";

@@ -114,6 +114,24 @@ public class BitBucketLinkBuilderTests
         link.ShouldBe("https://bitbucket.com/mobiloitteinc/dotnet-codebase/commits/734713bc047d87bf7eac9674765ae793478c50d3");
     }
 
+    [Theory]
+    [InlineData(
+        "",
+        "https://bitbucket.org/mobiloitteinc/dotnet-codebase/src/v1.2.3")]
+    [InlineData(
+        "https://bitbucket.org/{{owner}}/{{repository}}/compare/{{previousTag}}...{{currentTag}}",
+        "https://bitbucket.org/mobiloitteinc/dotnet-codebase/compare/v1.2.2...v1.2.3")]
+    public void ShouldBuildVersionTagLink(string compareUrlFormat, string expected)
+    {
+        SemanticVersion newVersion = SemanticVersion.Parse("1.2.3");
+        SemanticVersion previousVersion = SemanticVersion.Parse("1.2.2");
+
+        var linkBuilder = new BitbucketLinkBuilder(httpsOrgPushUrl);
+        var link = linkBuilder.BuildVersionTagLink(newVersion, previousVersion, compareUrlFormat);
+
+        link.ShouldBe(expected);
+    }
+
     [Fact]
     public void ShouldBuildAnOrgHTTPSCommitLink()
     {

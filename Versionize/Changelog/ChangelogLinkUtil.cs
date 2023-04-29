@@ -4,22 +4,22 @@ using Version = NuGet.Versioning.SemanticVersion;
 
 namespace Versionize.Changelog;
 
-internal class ChangelogLinkUtil
+public class ChangelogLinkUtil
 {
     public static string CreateCompareUrl(
         string compareUrlFormat,
-        string organization,
+        string owner,
         string repository,
-        Version currentTag,
-        Version previousTag)
+        Version newVersion,
+        Version previousVersion)
     {
         var template = Handlebars.Compile(compareUrlFormat);
         var data = new
         {
-            organization,
+            owner,
             repository,
-            currentTag,
-            previousTag,
+            currentTag = $"v{newVersion}",
+            previousTag = $"v{previousVersion}",
         };
 
         return template(data);

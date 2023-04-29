@@ -50,7 +50,7 @@ public class GitlabLinkBuilder : IChangelogLinkBuilder
     {
         if (!string.IsNullOrEmpty(urlFormat))
         {
-            return ChangelogLinkUtil.CreateCompareUrl(urlFormat, _organization, _repository, previousVersion, newVersion);
+            return ChangelogLinkUtil.CreateCompareUrl(urlFormat, _organization, _repository, newVersion, previousVersion);
         }
 
         return $"https://gitlab.com/{_organization}/{_repository}/-/tags/v{newVersion}";
